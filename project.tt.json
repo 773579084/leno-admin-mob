@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "leno-admin-mob",
+  "description": "leno-admin移动端，技术栈：React、ts、taro",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}
