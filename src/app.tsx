@@ -1,16 +1,12 @@
-import { FC } from "react";
-import { Provider } from "mobx-react";
-
-import counterStore from "./store/counter";
-
+import { FC, ReactNode } from "react";
+import "taro-ui/dist/style/index.scss";
 import "./app.scss";
+interface AppProps {
+  children: ReactNode;
+}
 
-const store = {
-  counterStore,
-};
-
-const App: FC = (props) => {
-  return <Provider store={store}>{props.children}</Provider>;
+const App: FC<AppProps> = ({ children }) => {
+  return <div>{children}</div>;
 };
 
 export default App;
