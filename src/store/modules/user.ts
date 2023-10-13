@@ -1,6 +1,6 @@
+import { IgetInfoType, userType } from "~/types/system/sysUser";
 import { makeAutoObservable } from "mobx";
 import { makePersistable } from "mobx-persist-store";
-import { IgetInfoType, userType } from "@/types/user";
 
 export default class UseUserInfoStore {
   userInfo = {} as userType;

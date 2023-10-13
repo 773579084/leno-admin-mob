@@ -1,4 +1,4 @@
-import useStore from "@/store/user";
+import useStore from "~/store";
 import { toJS } from "mobx";
 
 const TokenKey = "leno_admin_mob_token";
@@ -22,7 +22,9 @@ export function removeToken() {
  * @returns boolean
  */
 export function hasPermi(perm: string | string[]) {
-  const { permissions } = useStore;
+  const {
+    useUserStore: { permissions },
+  } = useStore();
   const permList = toJS(permissions);
   if (permList[0] === "*:*:*") return false;
 

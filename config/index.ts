@@ -1,3 +1,5 @@
+import path from "path";
+
 const config = {
   projectName: "leno-admin-mob",
   date: "2023-10-8",
@@ -19,6 +21,10 @@ const config = {
   compiler: "webpack5",
   cache: {
     enable: false, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
+  },
+  alias: {
+    // 此处使用~而没有使用@，是因为@会与@tarojs/taro冲突，导致一致设置都无法生效，最终只好选择~
+    "~": path.resolve(__dirname, "..", "src/"),
   },
   mini: {
     postcss: {

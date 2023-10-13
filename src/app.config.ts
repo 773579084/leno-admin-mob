@@ -17,12 +17,12 @@ export default defineAppConfig({
         selectedIconPath: "",
         text: "首页",
       },
-      {
-        pagePath: "pages/login/index",
-        iconPath: "",
-        selectedIconPath: "",
-        text: "登录",
-      },
+      // {
+      //   pagePath: "pages/login/index",
+      //   iconPath: "",
+      //   selectedIconPath: "",
+      //   text: "登录",
+      // },
     ],
   },
 });
