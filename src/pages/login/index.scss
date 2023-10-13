@@ -12,4 +12,14 @@
   color: #898989;
 }
 
+.login-form {
+  margin: 0 10% 4%;
+
+  :global {
+
+    .at-button__wxbutton {
+      color: pink;
+    }
+  }
+}
 

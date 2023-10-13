@@ -1,3 +1,11 @@
+// 登录form
+export interface ILogin {
+  userName?: string;
+  password?: string;
+  code?: string;
+  uuid?: string;
+}
+
 // 用户列表
 export interface DataType {
   userId: number;
