@@ -1,19 +1,22 @@
 import axios, { type Method } from "axios";
-import { getToken, removeToken } from "~/utils/auth";
 import useStore from "~/store";
 import Taro from "@tarojs/taro";
 
 const instance = axios.create({
-  baseURL: "",
+  baseURL: process.env.BASE_ENV,
   timeout: 10000,
 });
 
 // 请求拦截器
 instance.interceptors.request.use(
   (response: any) => {
+    const {
+      useUserStore: { token },
+    } = useStore();
+
     // token配置请求头
-    if (!response.headers?.authorization && getToken()) {
-      response.headers.Authorization = `Bearer ${getToken()}`;
+    if (!response.headers?.authorization && token) {
+      response.headers.Authorization = `Bearer ${token}`;
     }
 
     return response;
@@ -65,7 +68,6 @@ instance.interceptors.response.use(
             success: function (res) {
               if (res.confirm) {
                 changeLogout(true);
-                removeToken();
                 removeLocalToken("");
                 window.location.hash = "/login";
               } else if (res.cancel) {

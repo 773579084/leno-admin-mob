@@ -1,21 +1,6 @@
 import useStore from "~/store";
 import { toJS } from "mobx";
 
-const TokenKey = "leno_admin_mob_token";
-
-/* Token */
-export function getToken() {
-  return localStorage.get(TokenKey) as string;
-}
-
-export function setToken(token: string) {
-  return localStorage.set(TokenKey, token);
-}
-
-export function removeToken() {
-  return localStorage.remove(TokenKey);
-}
-
 /**
  * 权限字符判断
  * @param perm
