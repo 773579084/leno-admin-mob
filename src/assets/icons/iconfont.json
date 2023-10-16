@@ -1,0 +1,16 @@
+{
+  "id": "4287970",
+  "name": "leno-admin-mob",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8594072",
+      "name": "验证码",
+      "font_class": "yanzhengma",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    }
+  ]
+}

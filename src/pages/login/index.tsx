@@ -1,4 +1,4 @@
-import { View, Text, Image } from "@tarojs/components";
+import { View, Text, Image, RichText } from "@tarojs/components";
 import Taro from "@tarojs/taro";
 import { useState, useEffect } from "react";
 import { AtForm, AtInput, AtButton, AtIcon } from "taro-ui";
@@ -22,8 +22,6 @@ function Login() {
   // 验证图片
   const getCaptchaImage = async () => {
     try {
-      console.log(25, process.env.NODE_ENV);
-
       const {
         data: { result },
       } = await captchaImageAPI();
@@ -89,11 +87,16 @@ function Login() {
 
         <View
           className="at-row at-row__justify--center margin-btm"
-          style={{ marginBottom: "20px" }}
+          style={{ marginBottom: "40px" }}
         >
           <View className="at-row at-row__justify--start">
             <View className="flex-align">
-              <AtIcon value="bell" size="30" color="#999999" />
+              <AtIcon
+                prefixClass="iconfont"
+                value="yanzhengma"
+                size="30"
+                color="#999999"
+              />
             </View>
             <AtInput
               name="value"
@@ -103,9 +106,12 @@ function Login() {
               placeholder="请输入验证码"
               value={login.code}
               onChange={() => {}}
-            >
-              <Image style="width: 100px;height: 25px;" src={logPng} />
-            </AtInput>
+            ></AtInput>
+            <RichText
+              className="svg-check"
+              nodes={svgCode.img}
+              onClick={getCaptchaImage}
+            />
           </View>
         </View>
         <AtButton formType="submit" circle type="primary">
