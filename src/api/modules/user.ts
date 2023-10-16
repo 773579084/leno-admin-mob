@@ -6,7 +6,6 @@ import {
   ILogin,
   ILoginApi,
   IProfileAvatar,
-  IRegisterApi,
   IsucceeMes,
   IUserProp,
 } from "~/types/system/user";
@@ -14,10 +13,6 @@ import {
 // 登录
 export const loginAPI = (data: ILogin) =>
   http<ILoginApi>("POST", "/user/login", data);
-
-// 注册
-export const registerAPI = (data: ILogin) =>
-  http<IRegisterApi>("POST", "/user/register", data);
 
 // 验证图片
 export const captchaImageAPI = () =>

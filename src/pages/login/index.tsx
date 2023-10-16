@@ -2,9 +2,10 @@ import { View, Text, Image, RichText } from "@tarojs/components";
 import Taro from "@tarojs/taro";
 import { useState, useEffect } from "react";
 import { AtForm, AtInput, AtButton, AtIcon } from "taro-ui";
+import useStore from "~/store";
 import logPng from "~/assets/images/logo.png";
 import "./index.scss";
-import { captchaImageAPI } from "~/api/modules/user";
+import { captchaImageAPI, loginAPI } from "~/api/modules/user";
 import { IcaptchaImageType, ILogin } from "~/types/system/user";
 
 function Login() {
@@ -18,6 +19,9 @@ function Login() {
     img: "",
     uuid: "",
   });
+  const {
+    useUserStore: { setToken },
+  } = useStore();
 
   // 验证图片
   const getCaptchaImage = async () => {
@@ -33,12 +37,37 @@ function Login() {
     getCaptchaImage();
   }, []);
 
-  const onSubmit = () => {
-    // Taro.showToast({
-    //   title: `测试`,
-    //   icon: "error",
-    // });
-    console.log(17, login);
+  const errorMes = (message) => {
+    Taro.showToast({
+      title: message,
+      icon: "error",
+    });
+  };
+
+  const onSubmit = async () => {
+    if (login.userName === "") {
+      errorMes(`用户名不能为空`);
+    } else if (login.password === "") {
+      errorMes(`密码不能为空`);
+    } else if (login.code === "") {
+      errorMes(`验证码不能为空`);
+    } else {
+      Taro.showToast({
+        title: `登录中,请耐心等待...`,
+        icon: "loading",
+      });
+      try {
+        const {
+          data: {
+            result: { token },
+          },
+        } = await loginAPI({ ...login, uuid: svgCode.uuid });
+        setToken(token as string);
+        Taro.redirectTo({
+          url: "pages/main/index/index",
+        });
+      } catch (error) {}
+    }
   };
 
   return (
@@ -67,7 +96,9 @@ function Login() {
             type="text"
             placeholder="请输入账号"
             value={login.userName}
-            onChange={() => {}}
+            onChange={(value: string) => {
+              setLogin({ ...login, userName: value });
+            }}
           />
         </View>
         <View className="at-row at-row__justify--start margin-btm">
@@ -81,7 +112,9 @@ function Login() {
             type="password"
             placeholder="请输入密码"
             value={login.password}
-            onChange={() => {}}
+            onChange={(value: string) => {
+              setLogin({ ...login, password: value });
+            }}
           />
         </View>
 
@@ -105,7 +138,9 @@ function Login() {
               type="text"
               placeholder="请输入验证码"
               value={login.code}
-              onChange={() => {}}
+              onChange={(value: string) => {
+                setLogin({ ...login, code: value });
+              }}
             ></AtInput>
             <RichText
               className="svg-check"
