@@ -26,9 +26,11 @@ function Login() {
   // 验证图片
   const getCaptchaImage = async () => {
     try {
+      console.log(29);
       const {
         data: { result },
       } = await captchaImageAPI();
+      console.log(33, result);
       setSvgCode(result);
     } catch (error) {}
   };
@@ -37,7 +39,7 @@ function Login() {
     getCaptchaImage();
   }, []);
 
-  const errorMes = (message) => {
+  const errorMes = (message: string) => {
     Taro.showToast({
       title: message,
       icon: "error",

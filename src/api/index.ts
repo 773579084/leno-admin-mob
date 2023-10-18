@@ -1,4 +1,4 @@
-import axios, { type Method } from "axios";
+import axios, { type Method } from "taro-axios";
 import useStore from "~/store";
 import Taro from "@tarojs/taro";
 
@@ -18,7 +18,6 @@ instance.interceptors.request.use(
     if (!response.headers?.authorization && token) {
       response.headers.Authorization = `Bearer ${token}`;
     }
-
     return response;
   },
   (error) => Promise.reject(error)
