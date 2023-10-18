@@ -114,12 +114,17 @@ export interface ResponseData<T> {
  * @param {String} method  请求类型
  * @param {Object} submitData  对象类型，提交数据
  */
-export const http = <T>(method: Method, url: string, submitData?: unknown) =>
-  instance.request<T, ResponseData<T>>({
+export const http = function <T>(
+  method: Method,
+  url: string,
+  submitData?: unknown
+) {
+  return instance.request<T, ResponseData<T>>({
     url,
     method,
     // 自动设置合适的 params/data 键名称，如果 method 为 get 用 params 传请求参数，否则用 data
     [method.toUpperCase() === "GET" ? "params" : "data"]: submitData,
   });
+};
 
 export default instance;
