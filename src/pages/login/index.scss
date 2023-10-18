@@ -7,10 +7,11 @@
   .flex-align {
     display: flex;
     align-items: center;
+    font-size: 40px;
   }
 
   .login-deal {
-    font-size: 12px;
+    font-size: 24px;
     color: #898989;
   }
 
@@ -18,18 +19,28 @@
     margin: 0 10% 4%;
 
     .margin-btm {
-      margin-bottom: 12px;
-      border-bottom: 1px solid #dedcdc;
+      margin-bottom: 20px;
     }
 
     .svg-check {
       display: flex;
       align-items: center;
+      margin-left: 10px;
+    }
+
+    .le-input {
+      padding-left: 15px;
+      border-radius: 100px;
+      background-color: #f5f6f7;
+    }
+
+    .at-input {
+      background-color: transparent;
     }
   }
 
-  .at-form {
-    border-top: 1px solid #dedcdc!important;
+  .at-form::after {
+    border: 0 solid transparent;
   }
 
 }

@@ -75,7 +75,7 @@ function Login() {
       <View className="at-row at-row__justify--center logo-title">
         <View className="flex-align">
           <Image
-            style="width: 40px;height: 35px;background: #fff;margin-right:10px;"
+            style="width: 50px;height: 45px;background: #fff;margin-right:10px;"
             src={logPng}
           />
         </View>
@@ -85,9 +85,9 @@ function Login() {
       </View>
 
       <AtForm className="login-form" onSubmit={onSubmit}>
-        <View className="at-row at-row__justify--start margin-btm">
+        <View className="at-row at-row__justify--start margin-btm le-input">
           <View className="flex-align">
-            <AtIcon value="user" size="30" color="#999999" />
+            <AtIcon value="user" size="22" color="#999999" />
           </View>
           <AtInput
             name="value"
@@ -101,9 +101,9 @@ function Login() {
             }}
           />
         </View>
-        <View className="at-row at-row__justify--start margin-btm">
+        <View className="at-row at-row__justify--start margin-btm le-input">
           <View className="flex-align">
-            <AtIcon value="lock" size="30" color="#999999" />
+            <AtIcon value="lock" size="22" color="#999999" />
           </View>
           <AtInput
             name="value"
@@ -120,28 +120,31 @@ function Login() {
 
         <View
           className="at-row at-row__justify--center margin-btm"
-          style={{ marginBottom: "40px" }}
+          style={{ marginBottom: "30px" }}
         >
           <View className="at-row at-row__justify--start">
-            <View className="flex-align">
-              <AtIcon
-                prefixClass="iconfont"
-                value="yanzhengma"
-                size="30"
-                color="#999999"
+            <View className="at-row at-row__justify--start le-input">
+              <View className="flex-align">
+                <AtIcon
+                  prefixClass="iconfont"
+                  value="yanzhengma"
+                  size="22"
+                  color="#999999"
+                />
+              </View>
+              <AtInput
+                name="value"
+                required
+                border={false}
+                type="text"
+                placeholder="请输入验证码"
+                value={login.code}
+                onChange={(value: string) => {
+                  setLogin({ ...login, code: value });
+                }}
               />
             </View>
-            <AtInput
-              name="value"
-              required
-              border={false}
-              type="text"
-              placeholder="请输入验证码"
-              value={login.code}
-              onChange={(value: string) => {
-                setLogin({ ...login, code: value });
-              }}
-            ></AtInput>
+
             <RichText
               className="svg-check"
               nodes={svgCode.img}

@@ -18,7 +18,13 @@ const config = {
     options: {},
   },
   framework: "react",
-  compiler: "webpack5",
+  // compiler: "webpack5", // 使用这个会导致小程序端开发模式下包引入路径不正确，需要二次修改等问题，改为下面的可以解决这个问题
+  compiler: {
+    type: "webpack5",
+    prebundle: {
+      enable: false,
+    },
+  },
   cache: {
     enable: false, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
   },
