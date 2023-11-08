@@ -12,7 +12,6 @@ export default defineAppConfig({
     navigationBarTextStyle: "black",
   },
   tabBar: {
-    custom: false, // 该属性默认时也可以不写
     color: "#000000",
     selectedColor: "#1296db",
     list: [

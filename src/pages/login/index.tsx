@@ -57,9 +57,8 @@ function Login() {
     } else if (login.code === "") {
       errorMes(`验证码不能为空`);
     } else {
-      Taro.showToast({
+      Taro.showLoading({
         title: `登录中,请耐心等待...`,
-        icon: "loading",
       });
       try {
         const {
@@ -68,10 +67,13 @@ function Login() {
           },
         } = await loginAPI({ ...login, uuid: svgCode.uuid });
         setToken(token as string);
-        Taro.redirectTo({
-          url: "pages/main/index/index",
+        Taro.hideLoading();
+        Taro.switchTab({
+          url: "/pages/main/index/index",
         });
-      } catch (error) {}
+      } catch (error) {
+        errorMes(`登录失败！`);
+      }
     }
   };
 
