@@ -1,6 +1,7 @@
 export default defineAppConfig({
   pages: [
     "pages/login/index",
+    "pages/common/webview/index",
     "pages/main/index/index",
     "pages/main/workbench/index",
     "pages/main/my/index",
@@ -12,6 +13,7 @@ export default defineAppConfig({
     navigationBarTextStyle: "black",
   },
   tabBar: {
+    // custom: true,
     color: "#000000",
     selectedColor: "#1296db",
     list: [

@@ -167,8 +167,27 @@ function Login() {
       </AtForm>
 
       <View className="at-row at-row__justify--center login-deal">
-        登录即代表同意 <Text style={{ color: "#0081ff" }}>《用户协议》</Text>
-        <Text style={{ color: "#0081ff" }}>《隐私协议》</Text>
+        登录即代表同意{" "}
+        <Text
+          style={{ color: "#0081ff" }}
+          onClick={() => {
+            Taro.navigateTo({
+              url: "/pages/common/webview/index?title=用户服务协议",
+            });
+          }}
+        >
+          《用户协议》
+        </Text>
+        <Text
+          style={{ color: "#0081ff" }}
+          onClick={() => {
+            Taro.navigateTo({
+              url: "/pages/common/webview/index?title=隐私政策",
+            });
+          }}
+        >
+          《隐私协议》
+        </Text>
       </View>
     </View>
   );
