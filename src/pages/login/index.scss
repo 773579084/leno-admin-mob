@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     font-size: 40px;
+
   }
 
   .login-deal {
@@ -26,7 +27,13 @@
       display: flex;
       align-items: center;
       margin-left: 10px;
-      width: 200px;
+      width: 40%;
+      height: 100%;
+
+      .check-code {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     .le-input {

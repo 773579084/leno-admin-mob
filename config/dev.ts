@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     NODE_ENV: '"development"',
-    BASE_ENV: '"http://localhost:9090"',
+    BASE_ENV: '"http://zhaowenchao.top/prod-api"',
   },
   defineConstants: {},
   weapp: {

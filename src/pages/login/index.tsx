@@ -1,4 +1,4 @@
-import { View, Text, Image, RichText } from "@tarojs/components";
+import { View, Text, Image } from "@tarojs/components";
 import Taro from "@tarojs/taro";
 import { useState, useEffect } from "react";
 import { AtForm, AtInput, AtButton, AtIcon } from "taro-ui";
@@ -7,6 +7,7 @@ import logPng from "~/assets/images/logo.png";
 import "./index.scss";
 import { captchaImageAPI, loginAPI } from "~/api/modules/user";
 import { IcaptchaImageType, ILogin } from "~/types/system/user";
+import { Base64 } from "js-base64";
 
 function Login() {
   const [login, setLogin] = useState({
@@ -26,12 +27,14 @@ function Login() {
   // 验证图片
   const getCaptchaImage = async () => {
     try {
-      console.log(29);
       const {
         data: { result },
       } = await captchaImageAPI();
-      console.log(33, result);
-      setSvgCode(result);
+
+      setSvgCode({
+        ...result,
+        img: `data:image/svg+xml;base64,${Base64.encode(result.img)}`,
+      });
     } catch (error) {}
   };
 
@@ -146,12 +149,14 @@ function Login() {
                 }}
               />
             </View>
-
-            <RichText
-              className="svg-check"
-              nodes={svgCode.img}
-              onClick={getCaptchaImage}
-            />
+            <View className="svg-check">
+              <Image
+                className="check-code"
+                src={svgCode.img}
+                onClick={getCaptchaImage}
+                mode="scaleToFill"
+              />
+            </View>
           </View>
         </View>
         <AtButton formType="submit" circle type="primary">
