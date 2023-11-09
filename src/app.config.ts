@@ -13,7 +13,8 @@ export default defineAppConfig({
     navigationBarTextStyle: "black",
   },
   tabBar: {
-    // custom: true,
+    // 控制底部bar是否显示 true隐藏
+    custom: false,
     color: "#000000",
     selectedColor: "#1296db",
     list: [
