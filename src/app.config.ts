@@ -38,4 +38,9 @@ export default defineAppConfig({
       },
     ],
   },
+  animation: {
+    // 动画切换时间，单位毫秒
+    duration: 50, // 动画切换时间，单位毫秒
+    delay: 50,
+  },
 });
