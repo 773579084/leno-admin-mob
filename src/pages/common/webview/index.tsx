@@ -19,7 +19,7 @@ function WebView() {
 
   return (
     <View className="base">
-      <NavBar title={title} />
+      <NavBar title={decodeURIComponent(title)} />
       <View className="container">
         <View className="main-title">用户服务条款</View>
         <View className="second-title">服务条款确认与接纳</View>
