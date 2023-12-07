@@ -8,6 +8,7 @@ import "./index.scss";
 import { captchaImageAPI, loginAPI } from "~/api/modules/user";
 import { IcaptchaImageType, ILogin } from "~/types/system/user";
 import { Base64 } from "js-base64";
+import NavBar from "~/components/NavBar";
 
 function Login() {
   const [login, setLogin] = useState({
@@ -79,6 +80,7 @@ function Login() {
 
   return (
     <View className="login">
+      <NavBar isLeft={false} title="登录" />
       <View className="at-row at-row__justify--center logo-title">
         <View className="flex-align">
           <Image

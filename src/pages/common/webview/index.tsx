@@ -2,11 +2,13 @@ import { View, Text } from "@tarojs/components";
 import { useEffect } from "react";
 import Taro, { getCurrentInstance } from "@tarojs/taro";
 import "./index.scss";
+import NavBar from "~/components/NavBar";
 
 function WebView() {
   const { router } = getCurrentInstance();
+  let title = router?.params.title as string;
+
   useEffect(() => {
-    let title = router?.params.title as string;
     if (process.env.TARO_ENV === "h5") {
       title = decodeURIComponent(title);
     }
@@ -17,6 +19,7 @@ function WebView() {
 
   return (
     <View className="base">
+      <NavBar title={title} />
       <View className="container">
         <View className="main-title">用户服务条款</View>
         <View className="second-title">服务条款确认与接纳</View>
