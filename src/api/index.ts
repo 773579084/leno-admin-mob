@@ -18,6 +18,7 @@ instance.interceptors.request.use(
     if (!response.headers?.authorization && token) {
       response.headers.Authorization = `Bearer ${token}`;
     }
+
     return response;
   },
   (error) => Promise.reject(error)

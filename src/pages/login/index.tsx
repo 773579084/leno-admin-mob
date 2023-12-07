@@ -72,9 +72,7 @@ function Login() {
         Taro.switchTab({
           url: "/pages/main/index/index",
         });
-      } catch (error) {
-        errorMes(`登录失败！`);
-      }
+      } catch (error) {}
     }
   };
 

@@ -11,6 +11,7 @@ function WebView() {
   useEffect(() => {
     if (process.env.TARO_ENV === "h5") {
       title = decodeURIComponent(title);
+      document.title = title;
     }
     if (process.env.TARO_ENV === "weapp") {
       Taro.setNavigationBarTitle({ title });
