@@ -1,6 +1,6 @@
 import { IgetInfoType, userType } from "~/types/system/sysUser";
 import { makeAutoObservable } from "mobx";
-import { makePersistable } from "mobx-persist-store";
+import Taro from "@tarojs/taro";
 
 export default class UseUserInfoStore {
   userInfo = {} as userType;
@@ -15,11 +15,7 @@ export default class UseUserInfoStore {
   constructor() {
     // 响应式处理
     makeAutoObservable(this);
-    makePersistable(this, {
-      name: "leno_admin_mob_token", // 存储到localStorage当中的key值是什么，此处为字符串string；
-      properties: ["token"], // 需要持久化的数据是什么，此数据需要为上面声明了的变量，并且传值方式为[string]
-      storage: window.localStorage, // 你的数据需要用那种方式存储，常见的就是localStorage
-    });
+    this.token = Taro.getStorageSync("leno-admin-mob-token");
   }
 
   setUserInfo = (data: IgetInfoType) => {
@@ -40,9 +36,16 @@ export default class UseUserInfoStore {
 
   setToken = (token: string) => {
     this.token = token;
+    Taro.setStorage({
+      key: "leno-admin-mob-token",
+      data: token,
+    });
   };
 
   removeLocalToken = (token: string) => {
     this.token = token;
+    Taro.removeStorage({
+      key: "leno-admin-mob-token",
+    });
   };
 }
