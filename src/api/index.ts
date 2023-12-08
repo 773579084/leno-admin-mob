@@ -55,7 +55,7 @@ const httpMessageHandle = (
   switch (data && data.code) {
     case 400:
       Taro.showToast({
-        title: `${data.code}: ${data.message}`,
+        title: `${data.message}`,
         icon: "error",
       });
       break;
@@ -81,13 +81,13 @@ const httpMessageHandle = (
       break;
     case 403:
       Taro.showToast({
-        title: `${data.code}: ${data.message}`,
+        title: `${data.message}`,
         icon: "error",
       });
       break;
     case 500:
       Taro.showToast({
-        title: `${data.code}: ${data.message}`,
+        title: `${data.message}`,
         icon: "error",
       });
       break;

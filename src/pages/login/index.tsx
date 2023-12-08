@@ -72,7 +72,11 @@ function Login() {
         Taro.switchTab({
           url: "/pages/main/index/index",
         });
-      } catch (error) {}
+      } catch (error) {
+        setTimeout(() => {
+          Taro.hideLoading();
+        }, 1000);
+      }
     }
   };
 

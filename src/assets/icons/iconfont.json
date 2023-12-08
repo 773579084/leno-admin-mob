@@ -6,6 +6,83 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1727460",
+      "name": "226角色、群体",
+      "font_class": "jiaosequnti",
+      "unicode": "e8c9",
+      "unicode_decimal": 59593
+    },
+    {
+      "icon_id": "5767876",
+      "name": "消息通知",
+      "font_class": "xiaoxitongzhi",
+      "unicode": "ec35",
+      "unicode_decimal": 60469
+    },
+    {
+      "icon_id": "5881141",
+      "name": "部门",
+      "font_class": "bumen",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "8949009",
+      "name": "岗位",
+      "font_class": "gangwei",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "15391387",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "24848479",
+      "name": "日志管理",
+      "font_class": "rizhiguanli",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "32470966",
+      "name": "qingkong",
+      "font_class": "qingkong",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "11983543",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "ea0b",
+      "unicode_decimal": 59915
+    },
+    {
+      "icon_id": "14774397",
+      "name": "文档",
+      "font_class": "wendang",
+      "unicode": "e6b9",
+      "unicode_decimal": 59065
+    },
+    {
+      "icon_id": "25671450",
+      "name": "关注",
+      "font_class": "guanzhu",
+      "unicode": "fe26",
+      "unicode_decimal": 65062
+    },
+    {
+      "icon_id": "34685994",
+      "name": "人工成本",
+      "font_class": "rengongchengben",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
       "icon_id": "8594072",
       "name": "验证码",
       "font_class": "yanzhengma",

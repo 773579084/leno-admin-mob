@@ -7,7 +7,7 @@ const RouterMonitor = (props: { url: string }) => {
   let routerPath = Taro.getStorageSync("router-path");
 
   if (token) {
-    // 有token去login 则直接返回到当前的路由
+    // 有token去login
     if (handleUrl === "/login/index" || handleUrl === "/" || !handleUrl) {
       Taro.switchTab({
         url: routerPath as string,
