@@ -1,26 +1,20 @@
 import { View, Image } from "@tarojs/components";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AtAvatar, AtList, AtListItem, AtToast } from "taro-ui";
 import NavBar from "~/components/NavBar";
 import "./index.scss";
-import { getProfileAPI } from "~/api/modules/user";
 import github from "~/assets/images/github.png";
 import guanzhu from "~/assets/images/关注.png";
 import wendang from "~/assets/images/文档.png";
 import people from "~/assets/images/人工成本.png";
-import { userType } from "~/types/system/sysUser";
+import useStore from "~/store";
 import Taro from "@tarojs/taro";
 
 function My() {
-  const [userInfo, setUserInfo] = useState<userType>({});
+  const {
+    useUserStore: { userInfo },
+  } = useStore();
   const [qq, setQq] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      const res = await getProfileAPI();
-      setUserInfo(res.data.result);
-    })();
-  }, []);
 
   return (
     <View className="index">
@@ -115,6 +109,11 @@ function My() {
               <AtListItem
                 title="编辑资料"
                 arrow="right"
+                onClick={() => {
+                  Taro.navigateTo({
+                    url: "/pages/main/my/myPage/editInfo/index",
+                  });
+                }}
                 iconInfo={{ size: 25, color: "#78A4FA", value: "user" }}
               />
 

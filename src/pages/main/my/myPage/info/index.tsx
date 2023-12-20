@@ -1,20 +1,22 @@
 import { View } from "@tarojs/components";
 import { useEffect, useState } from "react";
 import { AtList, AtListItem } from "taro-ui";
-import { getProfileAPI } from "~/api/modules/user";
 import NavBar from "~/components/NavBar";
-import { userType } from "~/types/system/sysUser";
+import useStore from "~/store";
 import "./index.scss";
 
 function Index() {
-  const [userInfo, setUserInfo] = useState<userType>({});
+  const [roles, setRoles] = useState("");
+  const {
+    useUserStore: { userInfo },
+  } = useStore();
 
   useEffect(() => {
-    (async () => {
-      const res = await getProfileAPI();
-      setUserInfo(res.data.result);
-    })();
-  }, []);
+    userInfo.roles?.forEach((item) => {
+      setRoles(item.roleName + `${roles ? "," : ""}` + roles);
+    });
+  }, [userInfo]);
+
   return (
     <View>
       <NavBar title="个人信息" />
@@ -35,8 +37,8 @@ function Index() {
           iconInfo={{ size: 20, color: "#78A4FA", value: "mail" }}
         />
         <AtListItem
-          title="岗位"
-          extraText={userInfo.postGroup}
+          title="部门"
+          extraText={userInfo.dept?.deptName}
           iconInfo={{
             size: 20,
             color: "#78A4FA",
@@ -46,7 +48,7 @@ function Index() {
         />
         <AtListItem
           title="角色"
-          extraText={userInfo.roleGroup}
+          extraText={roles}
           iconInfo={{
             size: 20,
             color: "#78A4FA",
