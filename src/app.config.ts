@@ -5,6 +5,11 @@ export default defineAppConfig({
     "pages/main/index/index",
     "pages/main/workbench/index",
     "pages/main/my/index",
+    "pages/main/my/myPage/info/index",
+    "pages/main/my/myPage/about/index",
+    "pages/main/my/myPage/editInfo/index",
+    "pages/main/my/myPage/help/index",
+    "pages/main/my/myPage/setting/index",
   ],
   window: {
     backgroundTextStyle: "light",

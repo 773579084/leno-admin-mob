@@ -31,7 +31,16 @@ function My() {
             <AtAvatar circle image={userInfo.avatar} />
             <View className="user-name">用户名：{userInfo.userName}</View>
           </View>
-          <View className="angle-info">个人信息 {`>`}</View>
+          <View
+            className="angle-info"
+            onClick={() => {
+              Taro.navigateTo({
+                url: "/pages/main/my/myPage/info/index",
+              });
+            }}
+          >
+            个人信息 {`>`}
+          </View>
         </View>
         <View className="bottom">
           <View className="bottom-one">
