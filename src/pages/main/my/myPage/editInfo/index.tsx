@@ -6,6 +6,7 @@ import { userType } from "~/types/system/sysUser";
 import "./index.scss";
 import useStore from "~/store";
 import { getUserAPI, updateUserInfoAPI } from "~/api/modules/user";
+import Taro from "@tarojs/taro";
 
 function Index() {
   const [editUserInfo, setEditUserInfo] = useState<userType>({});
@@ -18,14 +19,17 @@ function Index() {
   }, []);
 
   const onSubmit = async () => {
-    await updateUserInfoAPI({
-      nickName: editUserInfo.nickName,
-      phonenumber: editUserInfo.phonenumber,
-      email: editUserInfo.email,
-      sex: editUserInfo.sex,
-    });
-    const res = await getUserAPI();
-    setUserInfo(res.data.result);
+    try {
+      await updateUserInfoAPI({
+        nickName: editUserInfo.nickName,
+        phonenumber: editUserInfo.phonenumber,
+        email: editUserInfo.email,
+        sex: editUserInfo.sex,
+      });
+      const res = await getUserAPI();
+      setUserInfo(res.data.result);
+      Taro.showToast({ title: "修改成功", icon: "success" });
+    } catch (error) {}
   };
 
   return (

@@ -61,8 +61,6 @@ const httpMessageHandle = (
       break;
     case "401":
       if (logout) {
-        console.log(64);
-
         changeLogout(false);
         Taro.showModal({
           title: "系统提示",
