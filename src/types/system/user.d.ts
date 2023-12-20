@@ -84,9 +84,9 @@ export interface IuserInfo {
 // props
 export interface IUserProp {
   nickName?: string;
-  phoneNumber?: string;
+  phonenumber?: string;
   email?: string;
-  sex?: number;
+  sex?: string;
 }
 export interface IcaptchaImageType {
   img: string;

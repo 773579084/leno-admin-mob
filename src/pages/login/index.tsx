@@ -101,8 +101,9 @@ function Login() {
             <AtIcon value="user" size="22" color="#999999" />
           </View>
           <AtInput
-            name="value"
+            name="usname"
             required
+            clear
             border={false}
             type="text"
             placeholder="请输入账号"
@@ -117,7 +118,8 @@ function Login() {
             <AtIcon value="lock" size="22" color="#999999" />
           </View>
           <AtInput
-            name="value"
+            name="psw"
+            clear
             required
             border={false}
             type="password"
@@ -144,7 +146,7 @@ function Login() {
                 />
               </View>
               <AtInput
-                name="value"
+                name="svg"
                 required
                 border={false}
                 type="text"
