@@ -19,7 +19,11 @@ const RouterMonitor = (props: { url: string }) => {
       });
     }
   } else {
-    if (handleUrl !== "/login/index" && handleUrl !== "/") {
+    if (
+      handleUrl !== "/login/index" &&
+      handleUrl !== "/" &&
+      handleUrl !== "/common/webview/index"
+    ) {
       Taro.redirectTo({
         url: "/pages/login/index",
       });

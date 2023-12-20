@@ -1,22 +1,33 @@
 import { View, Image } from "@tarojs/components";
 import { useEffect, useState } from "react";
-import { AtAvatar, AtIcon, AtList, AtListItem } from "taro-ui";
+import { AtAvatar, AtList, AtListItem } from "taro-ui";
 import NavBar from "~/components/NavBar";
 import "./index.scss";
+import { getProfileAPI } from "~/api/modules/user";
 import github from "~/assets/images/github.png";
 import guanzhu from "~/assets/images/关注.png";
 import wendang from "~/assets/images/文档.png";
 import people from "~/assets/images/人工成本.png";
+import { userType } from "~/types/system/sysUser";
 
 function My() {
+  const [userInfo, setUserInfo] = useState<userType>({});
+
+  useEffect(() => {
+    (async () => {
+      const res = await getProfileAPI();
+      setUserInfo(res.data.result);
+    })();
+  }, []);
+
   return (
     <View className="index">
       <NavBar title="我的" isLeft={false} />
       <View className="top">
         <View className="user">
           <View className="user">
-            <AtAvatar circle />
-            <View className="user-name">用户名：admin</View>
+            <AtAvatar circle image={userInfo.avatar} />
+            <View className="user-name">用户名：{userInfo.userName}</View>
           </View>
           <View className="angle-info">个人信息 {`>`}</View>
         </View>

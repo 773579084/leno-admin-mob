@@ -33,7 +33,7 @@ instance.interceptors.response.use(
   (error) => {
     const { data } = error.response;
     httpMessageHandle(data, true);
-    return Promise.reject(error);
+    // return Promise.reject(error);
   }
 );
 
@@ -53,13 +53,13 @@ const httpMessageHandle = (
    * 500 => 服务器拒绝请求
    */
   switch (data && data.code) {
-    case 400:
+    case "400":
       Taro.showToast({
         title: `${data.message}`,
         icon: "error",
       });
       break;
-    case 401:
+    case "401":
       if (logout) {
         changeLogout(false);
         Taro.showModal({
@@ -71,7 +71,9 @@ const httpMessageHandle = (
             if (res.confirm) {
               changeLogout(true);
               removeLocalToken("");
-              window.location.hash = "/login";
+              Taro.redirectTo({
+                url: "/pages/login/index",
+              });
             } else if (res.cancel) {
               changeLogout(true);
             }
@@ -79,13 +81,13 @@ const httpMessageHandle = (
         });
       }
       break;
-    case 403:
+    case "403":
       Taro.showToast({
         title: `${data.message}`,
         icon: "error",
       });
       break;
-    case 500:
+    case "500":
       Taro.showToast({
         title: `${data.message}`,
         icon: "error",
