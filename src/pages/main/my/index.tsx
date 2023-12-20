@@ -1,6 +1,6 @@
 import { View, Image } from "@tarojs/components";
 import { useEffect, useState } from "react";
-import { AtAvatar, AtList, AtListItem } from "taro-ui";
+import { AtAvatar, AtList, AtListItem, AtToast } from "taro-ui";
 import NavBar from "~/components/NavBar";
 import "./index.scss";
 import { getProfileAPI } from "~/api/modules/user";
@@ -9,9 +9,11 @@ import guanzhu from "~/assets/images/关注.png";
 import wendang from "~/assets/images/文档.png";
 import people from "~/assets/images/人工成本.png";
 import { userType } from "~/types/system/sysUser";
+import Taro from "@tarojs/taro";
 
 function My() {
   const [userInfo, setUserInfo] = useState<userType>({});
+  const [qq, setQq] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -33,19 +35,68 @@ function My() {
         </View>
         <View className="bottom">
           <View className="bottom-one">
-            <View className="card">
+            <View className="card" onClick={() => setQq(true)}>
               <Image className="icon" src={people} />
               交流群
             </View>
-            <View className="card">
+
+            <View
+              className="card"
+              onClick={() => {
+                if (process.env.TARO_ENV === "h5") {
+                  window.open(
+                    "https://github.com/773579084/Leno_Admin",
+                    "_blank"
+                  );
+                }
+                if (process.env.TARO_ENV === "weapp") {
+                  Taro.showToast({
+                    title: "功能建设中~",
+                    icon: "error",
+                  });
+                }
+              }}
+            >
               <Image className="icon" src={github} />
               Github
             </View>
-            <View className="card">
+            <View
+              className="card"
+              onClick={() => {
+                if (process.env.TARO_ENV === "h5") {
+                  window.open(
+                    "https://zhao-wenchao110.gitee.io/lenoadmin-docs/#/",
+                    "_blank"
+                  );
+                }
+                if (process.env.TARO_ENV === "weapp") {
+                  Taro.showToast({
+                    title: "功能建设中~",
+                    icon: "error",
+                  });
+                }
+              }}
+            >
               <Image className="icon" src={wendang} />
               技术文档
             </View>
-            <View className="card">
+            <View
+              className="card"
+              onClick={() => {
+                if (process.env.TARO_ENV === "h5") {
+                  window.open(
+                    "https://juejin.cn/user/1610152057789582/posts",
+                    "_blank"
+                  );
+                }
+                if (process.env.TARO_ENV === "weapp") {
+                  Taro.showToast({
+                    title: "功能建设中~",
+                    icon: "error",
+                  });
+                }
+              }}
+            >
               <Image className="icon" src={guanzhu} />
               关注作者
             </View>
@@ -79,6 +130,12 @@ function My() {
           </View>
         </View>
       </View>
+
+      <AtToast
+        isOpened={qq}
+        text="交流QQ群：913365274"
+        onClose={() => setQq(false)}
+      />
     </View>
   );
 }
