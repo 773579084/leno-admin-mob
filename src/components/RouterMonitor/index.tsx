@@ -16,8 +16,10 @@ const RouterMonitor = (props: { url: string }) => {
     if (Object.keys(userInfo).length === 0) {
       // 对象为空
       (async () => {
-        const res = await getUserAPI();
-        setUserInfo(res.data.result);
+        try {
+          const res = await getUserAPI();
+          setUserInfo(res.data.result);
+        } catch (error) {}
       })();
     }
 
