@@ -1,0 +1,18 @@
+.setting {
+  height: 100vh;
+  background-color: #f8f8f8;
+
+  .list {
+    margin: 30px;
+  }
+
+  .btn {
+    margin-top: 40px;
+    background-color: white;
+  }
+
+  .modal-content {
+    display: flex;
+    justify-content: center;
+  }
+}
