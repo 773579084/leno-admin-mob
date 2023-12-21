@@ -1,0 +1,23 @@
+.about {
+  height: 100vh;
+  background-color: #f8f8f8;
+
+
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .list {
+    margin: 30px;
+  }
+
+  .bottom-desc {
+    margin-top: 40px;
+    font-size: 20px;
+    text-align: center;
+    color: #686666;
+  }
+}
