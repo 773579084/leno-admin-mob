@@ -120,18 +120,33 @@ function My() {
               <AtListItem
                 title="常见问题"
                 arrow="right"
+                onClick={() => {
+                  Taro.navigateTo({
+                    url: "/pages/main/my/myPage/help/index",
+                  });
+                }}
                 iconInfo={{ size: 25, color: "#78A4FA", value: "help" }}
               />
 
               <AtListItem
                 title="关于我们"
                 arrow="right"
+                onClick={() => {
+                  Taro.navigateTo({
+                    url: "/pages/main/my/myPage/about/index",
+                  });
+                }}
                 iconInfo={{ size: 25, color: "#78A4FA", value: "heart" }}
               />
 
               <AtListItem
                 title="应用设置"
                 arrow="right"
+                onClick={() => {
+                  Taro.navigateTo({
+                    url: "/pages/main/my/myPage/setting/index",
+                  });
+                }}
                 iconInfo={{ size: 25, color: "#78A4FA", value: "settings" }}
               />
             </AtList>
