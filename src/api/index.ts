@@ -33,7 +33,7 @@ instance.interceptors.response.use(
   (error) => {
     const { data } = error.response;
     httpMessageHandle(data, true);
-    // return Promise.reject(error);
+    return Promise.reject(error);
   }
 );
 

@@ -25,7 +25,9 @@ const RouterMonitor = (props: { url: string }) => {
 
     // 有token去login
     if (handleUrl === "/login/index" || handleUrl === "/" || !handleUrl) {
-      Taro.switchTab({
+      console.log(28, routerPath);
+
+      Taro.redirectTo({
         url: routerPath as string,
       });
     } else {

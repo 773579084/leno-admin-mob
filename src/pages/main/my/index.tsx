@@ -22,7 +22,15 @@ function My() {
       <View className="top">
         <View className="user">
           <View className="user">
-            <AtAvatar circle image={userInfo.avatar} />
+            <View
+              onClick={() => {
+                Taro.navigateTo({
+                  url: "/pages/main/my/myPage/avatar/index",
+                });
+              }}
+            >
+              <AtAvatar circle image={userInfo.avatar} />
+            </View>
             <View className="user-name">用户名：{userInfo.userName}</View>
           </View>
           <View

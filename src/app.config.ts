@@ -10,6 +10,7 @@ export default defineAppConfig({
     "pages/main/my/myPage/editInfo/index",
     "pages/main/my/myPage/help/index",
     "pages/main/my/myPage/setting/index",
+    "pages/main/my/myPage/avatar/index",
   ],
   window: {
     backgroundTextStyle: "light",
