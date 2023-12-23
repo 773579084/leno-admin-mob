@@ -6,7 +6,6 @@ import { useState } from "react";
 import { getUserAPI, uploadAvatarAPI } from "~/api/modules/user";
 import Taro from "@tarojs/taro";
 import useStore from "~/store";
-import wxFormData from "~/utils/formData";
 
 function Index() {
   const [files, setFiles] = useState([]);
@@ -35,10 +34,6 @@ function Index() {
           await uploadAvatarAPI(fd);
         }
         if (process.env.TARO_ENV === "weapp") {
-          let fd = new wxFormData();
-          fd.append("avatar", (files[0] as any).file.originalFileObj);
-          const data = fd.getData();
-
           // await uploadAvatarAPI(fd as any);
         }
 

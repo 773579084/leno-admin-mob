@@ -1,3 +1,13 @@
-.title {
-  color: red!important;
+.container {
+  height: 100vh;
+  background-color: #f8f8f8;
+
+  .grid-title {
+    margin: 30px 15px;
+    padding-left: 15px;
+    font-size: 30px;
+    border-left: 6px solid #6190e8;
+  }
+
 }
+
