@@ -18,7 +18,7 @@ function Index() {
   }, [userInfo]);
 
   return (
-    <View>
+    <View className="info">
       <NavBar title="个人信息" />
       <AtList>
         <AtListItem
