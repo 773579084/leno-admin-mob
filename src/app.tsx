@@ -11,6 +11,7 @@ const App: FC<AppProps> = ({ children }) => {
   return (
     <div>
       <RouterMonitor url={window.location.href} />
+
       {children}
     </div>
   );

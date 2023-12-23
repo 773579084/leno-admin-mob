@@ -22,6 +22,7 @@ const NavBar = (props: { isLeft: Boolean; title: string }) => {
         <AtNavBar
           onClickLeftIcon={navBarLeftClick}
           color="#000"
+          fixed={false}
           title={navBarTitle}
           leftIconType={isLeft ? "chevron-left" : ""}
         />

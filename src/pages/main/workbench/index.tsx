@@ -1,15 +1,21 @@
 import { View } from "@tarojs/components";
-import { AtGrid } from "taro-ui";
+import { useState } from "react";
+import { AtGrid, AtToast } from "taro-ui";
 import NavBar from "~/components/NavBar";
 import "./index.scss";
 
 function Index() {
+  const [toast, setToast] = useState(false);
+
   return (
-    <View className="container">
+    <View className="workbench">
       <NavBar title="工作台" isLeft={false} />
       <View>
         <View className="grid-title">系统管理</View>
         <AtGrid
+          onClick={() => {
+            setToast(true);
+          }}
           hasBorder={false}
           columnNum={4}
           data={[
@@ -66,6 +72,13 @@ function Index() {
           ]}
         />
       </View>
+      <AtToast
+        isOpened={toast}
+        onClose={() => {
+          setToast(false);
+        }}
+        text="模块建设中~"
+      ></AtToast>
     </View>
   );
 }
