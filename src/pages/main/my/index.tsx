@@ -15,7 +15,6 @@ function My() {
     useUserStore: { userInfo },
   } = useStore();
   const [qq, setQq] = useState(false);
-  const [ava, setAva] = useState(false);
 
   return (
     <View className="index">
@@ -25,14 +24,9 @@ function My() {
           <View className="user">
             <View
               onClick={() => {
-                if (process.env.TARO_ENV === "h5") {
-                  Taro.navigateTo({
-                    url: "/pages/main/my/myPage/avatar/index",
-                  });
-                }
-                if (process.env.TARO_ENV === "weapp") {
-                  setAva(true);
-                }
+                Taro.navigateTo({
+                  url: "/pages/main/my/myPage/avatar/index",
+                });
               }}
             >
               <AtAvatar circle image={userInfo.avatar} />
@@ -172,11 +166,6 @@ function My() {
         isOpened={qq}
         text="交流QQ群：913365274"
         onClose={() => setQq(false)}
-      />
-      <AtToast
-        isOpened={ava}
-        text="微信小程序暂不支持更换头像"
-        onClose={() => setAva(false)}
       />
     </View>
   );

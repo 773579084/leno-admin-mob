@@ -61,7 +61,6 @@ const httpMessageHandle = (
       break;
     case "401":
       if (logout) {
-        changeLogout(false);
         Taro.showModal({
           title: "系统提示",
           content: "登录状态已过期，您可以继续留在该页面，或者重新登录",
@@ -75,7 +74,7 @@ const httpMessageHandle = (
                 url: "/pages/login/index",
               });
             } else if (res.cancel) {
-              changeLogout(true);
+              changeLogout(false);
             }
           },
         });

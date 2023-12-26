@@ -11,7 +11,7 @@ function Index() {
   const [files, setFiles] = useState([]);
   const [showAdd, setShowAdd] = useState(true);
   const {
-    useUserStore: { setUserInfo },
+    useUserStore: { setUserInfo, token },
   } = useStore();
 
   const changeFn = (files: any, operationType: string) => {
@@ -32,18 +32,35 @@ function Index() {
           const fd = new FormData();
           fd.append("avatar", (files[0] as any).file.originalFileObj);
           await uploadAvatarAPI(fd);
+          avatarSuccess();
         }
         if (process.env.TARO_ENV === "weapp") {
-          // await uploadAvatarAPI(fd as any);
+          const img = (files[0] as any).url;
+          Taro.uploadFile({
+            url: process.env.BASE_ENV + "/user/profile/avatar", //仅为示例，非真实的接口地址
+            filePath: img,
+            name: "avatar",
+            header: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${token}`,
+            },
+            success: function () {
+              avatarSuccess();
+            },
+          });
         }
+      } catch (error) {}
 
+      async function avatarSuccess() {
         const res = await getUserAPI();
         setUserInfo(res.data.result);
         Taro.showToast({ title: "图片修改成功", icon: "success" });
-        // Taro.switchTab({
-        //   url: "/pages/main/my/index",
-        // });
-      } catch (error) {}
+        setTimeout(() => {
+          Taro.switchTab({
+            url: "/pages/main/my/index",
+          });
+        }, 300);
+      }
     }
   };
 
