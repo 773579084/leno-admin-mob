@@ -9,7 +9,12 @@ import { getUserAPI, updateUserInfoAPI } from "~/api/modules/user";
 import Taro from "@tarojs/taro";
 
 function Index() {
-  const [editUserInfo, setEditUserInfo] = useState<userType>({});
+  const [editUserInfo, setEditUserInfo] = useState<userType>({
+    nickName: "",
+    phonenumber: "",
+    email: "",
+    sex: "0",
+  });
   const {
     useUserStore: { setUserInfo, userInfo },
   } = useStore();
