@@ -1,7 +1,6 @@
 module.exports = {
   env: {
     NODE_ENV: '"development"',
-    // BASE_ENV: '"http://zhaowenchao.top/prod-api"',
     BASE_ENV: '"http://192.168.60.142:9090"',
   },
   defineConstants: {},

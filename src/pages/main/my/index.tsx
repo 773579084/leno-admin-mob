@@ -4,9 +4,9 @@ import { AtAvatar, AtList, AtListItem, AtToast } from "taro-ui";
 import NavBar from "~/components/NavBar";
 import "./index.scss";
 import github from "~/assets/images/github.png";
-import guanzhu from "~/assets/images/关注.png";
-import wendang from "~/assets/images/文档.png";
-import people from "~/assets/images/人工成本.png";
+import guanzhu from "~/assets/images/guanzhu.png";
+import wendang from "~/assets/images/docment.png";
+import people from "~/assets/images/rengongchengben.png";
 import useStore from "~/store";
 import Taro from "@tarojs/taro";
 

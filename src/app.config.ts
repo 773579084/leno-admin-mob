@@ -26,20 +26,20 @@ export default defineAppConfig({
     list: [
       {
         pagePath: "pages/main/index/index",
-        iconPath: "assets/images/首页.png",
-        selectedIconPath: "assets/images/首页选中.png",
+        iconPath: "assets/images/index.png",
+        selectedIconPath: "assets/images/indexselect.png",
         text: "首页",
       },
       {
         pagePath: "pages/main/workbench/index",
-        iconPath: "assets/images/工作台.png",
-        selectedIconPath: "assets/images/工作台选中.png",
+        iconPath: "assets/images/gongzuotai.png",
+        selectedIconPath: "assets/images/gongzuotaixuanzhong.png",
         text: "工作台",
       },
       {
         pagePath: "pages/main/my/index",
-        iconPath: "assets/images/我的.png",
-        selectedIconPath: "assets/images/我的选中.png",
+        iconPath: "assets/images/my.png",
+        selectedIconPath: "assets/images/myselect.png",
         text: "我的",
       },
     ],

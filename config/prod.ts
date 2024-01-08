@@ -1,6 +1,7 @@
 module.exports = {
   env: {
     NODE_ENV: '"production"',
+    BASE_ENV: '"/h5-api"',
   },
   defineConstants: {},
   weapp: {

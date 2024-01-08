@@ -3,7 +3,7 @@ import NavBar from "~/components/NavBar";
 import { AtAccordion, AtCard } from "taro-ui";
 import "./index.scss";
 import github from "~/assets/images/github.png";
-import guanzhu from "~/assets/images/关注.png";
+import guanzhu from "~/assets/images/guanzhu.png";
 import { useState } from "react";
 
 function Index() {
