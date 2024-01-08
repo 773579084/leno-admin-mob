@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     NODE_ENV: '"production"',
-    BASE_ENV: '"/h5-api"',
+    BASE_ENV: '"http://h5.zhaowenchao.top/h5-api"',
   },
   defineConstants: {},
   weapp: {
